@@ -1,6 +1,6 @@
-# Lending Club Case Study 
+# Bike Sharing Assignment
 
-> Lending Club Case Study is an Explorative Data Analysis on the loan dataset of Lending Club (LC) with a view to find the strong influencing parameters to identify risky loan applicants, so that loans can be reduced thereby cutting down the amount of credit loss. Identification of such applicants using EDA is the aim of this case study.
+> Bike Sharing Assignment is a Multiple Linear Regression problem to find out which variables are significant in predicting the demand for shared bikes and how well those variables describe the bike demands for a bike sharing service (Boom Bikes).
 
 
 ## Table of Contents
@@ -12,23 +12,24 @@
 <!-- You can include any other section that is pertinent to your problem -->
 
 ## General Information
-- It is required to understand the driving factors behind loan default, i.e. the variables which are strong indicators of default, so that a suitable decision can be made when a new application arrives at LC for loan.
-- Dataset for loans issued between 2007 and 2011 in CSV format (loan.csv) along with a Data Dictionary in Excel file (data_dict.xlsx) is available in the repository. Meaning of variables as understood from LC's website et. al. has been incorporated in the data dictionary.
-- The dataset after cleaning has also been stored in the repository in CSV format (loan_clean.csv) in case anyone wants to skip the data cleaning steps. **don't forget to import the libraries, which are at the beggining of the notebook**
-- The analysis includes univariate, segmented univariate and bivariate analysis on the data
-- A presentation (in PDF format) is also available in the repository to provide overview and key insights  
+- The dataset consists of date wise rider counts along with the corresponding meteorological data for a perid of 2 years (2018-2019)
+- The notebook on the assignment includes data understanding, exploratory data analysis, data splitting for tarining and test, feature scaling, feature selection using RFE, model building, model evaluation including validation of assumptions of linear regression
 
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 ## Conclusions
-- Borrowering has an upward trend despite increase in interest rates  
-- Loan Grade E, F & G are High Risk, High Return credits to High Income Borrowers 
-- Very rich people also take loans and default
-- Key drivers of loan default hav been identified as low income, high DTI, higher borrowing tendency etc. (details in the PDF and Notebook)
-- LC can examine these key drivers for default during loan approval to reduce risks
-- LC should use Credit Score benchmarking for loan approval decision
+- Model's R-squared and Adj. R-squared scores during Traing and Testing Stages respectively are comparable. So there is no underfitting or overfitting.
+- Hence it can be concluded as a good machine learning model with generalization.
+- Prob (F-statistic) is very small, hence the R^2 value is significant and not by chance
+- The predictors in the final model equation can explain approx 78% of the variation in any unseen data
+- All VIFs < 5, so level of multicollinearity is acceptable
+- All p-values < 0.05, therefore all coefficients are significant
 
+### Top 3 Predictors
+- temp_feels_like (temperature feels like) positively affects the bike demand. Bike demand is likely to increase by 0.54 units for unit increase in temperature (temp_feels_like), provided other features remain unchanged
+- bad weather (snow or heavy snow) negatively affects the bike demand. Bike demand is likely to decrease by 0.28 units on snowy weather, provided other features remain unchanged
+- year positively affects the bike demand. Bike demand is likely to increase by 0.23 units every year, provided other features remain unchanged
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
@@ -40,17 +41,30 @@
 - Jupyter Notebook - version 6.4.12
 
 #### Libraries
-- numpy            - version 1.23.1  for array manipulation
+- numpy            - version 1.23.2  for array manipulation
 - pandas           - version 1.4.3   for data manipulation
-- matplotlib       - version 3.5.2   for plotting
+- matplotlib       - version 3.5.3   for plotting
 - seaborn          - version 0.11.2  for plotting
-- openpyxl         - version 3.0.10  for reading Excel file
-
+- scikit-learn     - version 1.1.2   for linear regression related work
+- statsmodels      - version 0.13.2  for linear regression, VIF computation
 
 <!-- As the libraries versions keep on changing, it is recommended to mention the version of library used in this project -->
 
 ## Acknowledgements
-- To understand the meaning of the Variables and gain insight about the business, LC’s website (www.lendingclub.com) and other public websites (www.bankrate.com, www.investopedia.com etc.) were referred.
+[1] Fanaee-T, Hadi, and Gama, Joao, "Event labeling combining ensemble detectors and background knowledge", Progress in Artificial Intelligence (2013): pp. 1-15, Springer Berlin Heidelberg, doi:10.1007/s13748-013-0040-3.
+
+@article{
+	year={2013},
+	issn={2192-6352},
+	journal={Progress in Artificial Intelligence},
+	doi={10.1007/s13748-013-0040-3},
+	title={Event labeling combining ensemble detectors and background knowledge},
+	url={http://dx.doi.org/10.1007/s13748-013-0040-3},
+	publisher={Springer Berlin Heidelberg},
+	keywords={Event labeling; Event detection; Ensemble learning; Background knowledge},
+	author={Fanaee-T, Hadi and Gama, Joao},
+	pages={1-15}
+}
 
 
 ## Contact
